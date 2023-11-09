@@ -18,8 +18,5 @@ public class Conference {
         session1.scheduleTalk(talk4);
 
         System.out.println(session1);
-
-
-
     }
 }
