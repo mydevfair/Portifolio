@@ -55,8 +55,6 @@ public class Test implements Comparable<Test> {
 
     @Override
     public int compareTo(Test a) {
-        if (this.startTime.equals(a.startTime)){
-
-        }
+        return this.startTime.compareTo(a.startTime);
     }
 }
