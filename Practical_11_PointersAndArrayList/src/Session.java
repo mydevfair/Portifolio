@@ -1,22 +1,37 @@
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.Objects;
 
 public class Session {
     private String sessionId, location;
     private Talk [] talkList;
+
+    private int capacity = 4;
 //    private int currentSize;
 
     public Session(String sessionId, String location) {
-        final int capacity = 4;
         this.sessionId = sessionId;
         this.location = location;
-        this.talkList = new Talk[4];
+        this.talkList = new Talk[capacity];
     }
     public void scheduleTalk(Talk talk) {
         for (int i = 0; i < talkList.length; i++) {
             if (talkList[i] == null) {
                 talkList[i] = talk;
                 break;
+            }
+        }
+    }
+    public void cancelTalk(Talk talk){
+        for (int i = 1; i < talkList.length; i++){
+            if (Objects.equals(talkList[i].getId(), talk.getId())){
+                talkList[i] = null;
+//                int j = i;
+//                while(j < talkList.length){
+//                    j++;
+//                    talkList[i] = talkList[j];
+//                    talkList[j] = null;
+//                }
             }
         }
     }

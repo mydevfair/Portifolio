@@ -18,5 +18,12 @@ public class Conference {
         session1.scheduleTalk(talk4);
 
         System.out.println(session1);
+
+
+        session1.cancelTalk(talk1);
+        System.out.println(session1);
+
+
+
     }
 }

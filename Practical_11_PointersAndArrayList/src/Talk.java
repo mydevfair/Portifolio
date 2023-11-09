@@ -13,6 +13,19 @@ public class Talk implements Comparable<Talk>{
         this.title = title;
         this.startTime = startTime;
     }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getSpeaker() {
+        return speaker;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
     @Override
     public String toString() {
         return "\nTalk{" +
