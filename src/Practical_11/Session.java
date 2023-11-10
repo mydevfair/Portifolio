@@ -25,15 +25,10 @@ public class Session {
         }
     }
     public void cancelTalk(Talk talk){
-        for (int i = 1; i < talkList.length; i++){
+        for (int i = 0; i < talkList.length; i++){
             if (Objects.equals(talkList[i].getId(), talk.getId())){
                 talkList[i] = null;
-                int j = i;
-                while(j < talkList.length){
-                    j++;
-                    talkList[i] = talkList[j];
-                    talkList[j] = null;
-                }
+
             }
         }
     }
