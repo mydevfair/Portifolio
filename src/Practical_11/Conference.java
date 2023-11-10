@@ -21,11 +21,10 @@ public class Conference {
 
         System.out.println(session1);
 
-
         session1.cancelTalk(talk1);
         System.out.println(session1);
 
-
-
+        session1.scheduleTalk(talk1);
+        System.out.println(session1);
     }
 }

@@ -6,9 +6,7 @@ import java.time.format.DateTimeFormatter;
 public class Talk implements Comparable<Talk>{
     private String id, speaker, title, startTime;
 
-    public String getStartTime() {
-        return startTime;
-    }
+
     public Talk(String id, String speaker, String title, String startTime) {
         this.id = id;
         this.speaker = speaker;
