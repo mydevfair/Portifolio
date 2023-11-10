@@ -1,3 +1,5 @@
+package Practical_11;
+
 public class Conference {
     public static void main(String[] args) {
         Talk talk1 = new Talk("1", "Speaker 1", "Talk A", "2023-11-07T09:04:00");

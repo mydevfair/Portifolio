@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Portifolio.iml" filepath="$PROJECT_DIR$/Portifolio.iml" />
       <module fileurl="file://$PROJECT_DIR$/Practical_11_PointersAndArrayList/Practical_11_PointersAndArrayList.iml" filepath="$PROJECT_DIR$/Practical_11_PointersAndArrayList/Practical_11_PointersAndArrayList.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Practical_12_LinkedLists/Practical_12_LinkedLists.iml" filepath="$PROJECT_DIR$/Practical_12_LinkedLists/Practical_12_LinkedLists.iml" />
     </modules>
   </component>
 </project>

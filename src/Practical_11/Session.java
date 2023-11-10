@@ -1,3 +1,5 @@
+package Practical_11;
+
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Objects;
@@ -26,12 +28,12 @@ public class Session {
         for (int i = 1; i < talkList.length; i++){
             if (Objects.equals(talkList[i].getId(), talk.getId())){
                 talkList[i] = null;
-//                int j = i;
-//                while(j < talkList.length){
-//                    j++;
-//                    talkList[i] = talkList[j];
-//                    talkList[j] = null;
-//                }
+                int j = i;
+                while(j < talkList.length){
+                    j++;
+                    talkList[i] = talkList[j];
+                    talkList[j] = null;
+                }
             }
         }
     }
