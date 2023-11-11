@@ -25,16 +25,12 @@ public class Session {
             }
         }
     }
-//    public void print(){
-//            for (int i = 0; i < entryCount; i++){
-//                System.out.println();
-//            }
-//        }
     public void cancelTalk(Talk talk){
         for (int i = 0; i < talkList.length; i++){
             if (Objects.equals(talkList[i].getId(), talk.getId())){
                 swap(talkList, i, talkList.length -1);
                 talkList[talkList.length-1] = null;
+                entryCount -= 1;
                 break;
             }
         }
@@ -49,8 +45,10 @@ public class Session {
     public String toString() {
         return "Session{" +
                 "id='" + sessionId + '\'' +
-                ", location='" + location + '\'' +
+                ", location='" + location + '\'' + "TalkListSize= " + entryCount +
                 "\ntalkList=" + Arrays.toString(talkList) +
                 '}';
     }
+
+
 }

@@ -2,6 +2,7 @@ package Practical_11;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Objects;
 
 public class Talk implements Comparable<Talk>{
     private String id, speaker, title, startTime;
@@ -26,6 +27,9 @@ public class Talk implements Comparable<Talk>{
         return title;
     }
 
+    public String getStartTime() {
+        return startTime;
+    }
     @Override
     public String toString() {
         return "\nTalk{" +
@@ -34,9 +38,10 @@ public class Talk implements Comparable<Talk>{
                 ", title='" + title + '\'' +
                 ", startTime='" + startTime + '\'' +
                 '}' ;
+
     }
     @Override
     public int compareTo(Talk o) {
-        return this.startTime.compareTo(o.startTime);
+        return this.getStartTime().compareTo(o.getStartTime());
     }
 }
