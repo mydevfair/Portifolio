@@ -42,6 +42,6 @@ public class Talk implements Comparable<Talk>{
     }
     @Override
     public int compareTo(Talk o) {
-        return this.getStartTime().compareTo(o.getStartTime());
+        return this.startTime.compareTo(o.startTime);
     }
 }
