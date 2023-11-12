@@ -1,10 +1,10 @@
 package Practical_12;
 
-public class Review implements Comparable<Review>{
-    private Integer id, score, confidence;
-    private String reviewer, summary;
+public class Review implements Comparable<Review> {
+    Integer id, score, confidence;
+    String reviewer, summary;
 
-    public Review(Integer id, Integer score, Integer confidence, String reviewer, String summary) {
+    public Review(Integer id, String reviewer, Integer score, Integer confidence, String summary) {
         this.id = id;
         this.score = score;
         this.confidence = confidence;
@@ -12,10 +12,9 @@ public class Review implements Comparable<Review>{
         this.summary = summary;
     }
 
-    public Integer getScore() {
-        return score;
+    public String getReviewer() {
+        return reviewer;
     }
-
     @Override
     public String toString() {
         return "Review{" +
@@ -26,8 +25,9 @@ public class Review implements Comparable<Review>{
                 ", summary='" + summary + '\'' +
                 '}';
     }
+
     @Override
     public int compareTo(Review o) {
-        return this.score.compareTo(o.score);
+        return -this.score.compareTo(o.score);
     }
 }

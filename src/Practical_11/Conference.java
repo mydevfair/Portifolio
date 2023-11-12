@@ -1,5 +1,7 @@
 package Practical_11;
 
+import java.util.Arrays;
+
 public class Conference {
     public static void main(String[] args) {
         Talk talk1 = new Talk("1", "Speaker 1", "Talk A", "2023-11-07T09:04:00");
@@ -20,8 +22,6 @@ public class Conference {
         session1.scheduleTalk(talk4);
 
         System.out.println(session1);
-
-        session1.cancelTalk(talk1);
 
         System.out.println(session1);
 
