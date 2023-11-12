@@ -2,7 +2,6 @@ package Practical_12;
 
 import java.util.Collections;
 import java.util.LinkedList;
-import java.util.List;
 
 public class Paper {
     private int id;
@@ -36,13 +35,25 @@ public class Paper {
             System.out.println("Reviewer " + review.getReviewer() + " has not submitted a review for this paper " + id);
         }
     }
-    public void updateReview(Review review){
+    public void updateReview(Review review, String reviewer, Integer score, Integer confidence, String summary){
         if (reviewList.contains(review)) {
-
+            review.setReviewer(reviewer);
+            review.setScore(score);
+            review.setConfidence(confidence);
+            review.setSummary(summary);
+            Collections.sort(reviewList);
+            System.out.println("Review updated for Paper " + id + ": " + review);
+            printReviewList();
         }
     }
     public void printReviewList() {
         System.out.println("Review List for Paper " + id + ": ");
+        for (Review review : reviewList) {
+            System.out.println(review);
+        }
+    }
+    public void printPaper(){
+        System.out.println("Paper Id= " + id + "\nPaper Title= " + title + "\nPaper Author= " + authors);
         for (Review review : reviewList) {
             System.out.println(review);
         }
@@ -54,7 +65,7 @@ public class Paper {
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", authors='" + authors + '\'' +
-                ", reviewList=" + reviewList +
-                '}';
+                ",\n reviewList=\n" + reviewList +
+                '}' + "\n";
     }
 }

@@ -15,6 +15,23 @@ public class Review implements Comparable<Review> {
     public String getReviewer() {
         return reviewer;
     }
+
+    public void setScore(Integer score) {
+        this.score = score;
+    }
+
+    public void setConfidence(Integer confidence) {
+        this.confidence = confidence;
+    }
+
+    public void setReviewer(String reviewer) {
+        this.reviewer = reviewer;
+    }
+
+    public void setSummary(String summary) {
+        this.summary = summary;
+    }
+
     @Override
     public String toString() {
         return "Review{" +
@@ -23,7 +40,7 @@ public class Review implements Comparable<Review> {
                 ", confidence=" + confidence +
                 ", reviewer='" + reviewer + '\'' +
                 ", summary='" + summary + '\'' +
-                '}';
+                '}' + "\n";
     }
 
     @Override
