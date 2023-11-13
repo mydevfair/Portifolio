@@ -1,38 +1,37 @@
 package Practical_11;
 
 import java.util.Arrays;
-import java.util.Objects;
+import java.util.Comparator;
 
 public class Session {
-    private String sessionId, location;
-    private Talk [] talkList;
+    int sessionId;
+    int capacity = 4;
+    int currentSize = 0;
+    String location;
+    Talk[] talkList;
 
-    private int entryCount;
-    private int capacity = 4;
-//    private int currentSize;
-
-    public Session(String sessionId, String location) {
+    public Session(int sessionId, String location) {
         this.sessionId = sessionId;
         this.location = location;
         this.talkList = new Talk[capacity];
     }
-    public void scheduleTalk(Talk talk) {
-        for (int i = 0; i < talkList.length; i++) {
-            if (talkList[i] == null) {
+    public void scheduleTalk(Talk talk){
+        for (int i = 0; i < talkList.length; i ++){
+            if (talkList[i] == null){
                 talkList[i] = talk;
-                entryCount += 1;
+                Arrays.sort(talkList, Comparator.nullsFirst(Comparator.naturalOrder()));
+                currentSize++;
                 break;
             }
         }
     }
     public void cancelTalk(Talk talk){
         for (int i = 0; i < talkList.length; i++){
-            if (Objects.equals(talkList[i].getId(), talk.getId())){
-                swap(talkList, i, talkList.length -1);
-                talkList[talkList.length-1] = null;
-                entryCount -= 1;
-                break;
-            }
+            swap(talkList, i, talkList.length -1);
+            talkList[talkList.length-1] = null;
+            Arrays.sort(talkList, Comparator.nullsFirst(Comparator.naturalOrder()));
+            currentSize--;
+            break;
         }
     }
     public static void swap(Talk[] array, int from, int to){
@@ -40,15 +39,23 @@ public class Session {
         array[from] = array[to];
         array[to] = tmp;
     }
+    public void printSession(){
+        System.out.println("Session Id= " + sessionId + "\nSession Location= " + location);
+        for (int i = 0; i < talkList.length; i++){
+            if (talkList[i] != null){
+                System.out.println();
+            }
+        }
+    }
 
     @Override
     public String toString() {
         return "Session{" +
-                "id='" + sessionId + '\'' +
-                ", location='" + location + '\'' + "TalkListSize= " + entryCount +
-                "\ntalkList=" + Arrays.toString(talkList) +
+                "sessionId=" + sessionId +
+                ", capacity=" + capacity +
+                ", currentSize=" + currentSize +
+                ", location='" + location + '\'' +
+                ", talkList=" + Arrays.toString(talkList) +
                 '}';
     }
-
-
 }

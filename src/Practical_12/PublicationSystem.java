@@ -12,17 +12,26 @@ public class PublicationSystem {
         Review review3 = new Review(3, "Reviewer A", 5, 4, "Good");
         Review review4 = new Review(4, "Reviewer B", 9, 2, "Average");
 
-        paper1.submitReview(review2);
         paper1.submitReview(review1);
+        paper1.submitReview(review2);
+        paper1.submitReview(review3);
         paper1.updateReview(review1, "Reviewer A", 10, 6, "Awesome");
-        //paper1.deleteReview(review2);
-
-        paper2.submitReview(review2);
-        paper2.submitReview(review1);
-        paper2.updateReview(review1, "Reviewer A", 10, 6, "Awesome");
-
+        paper1.deleteReview(review2);
         paper1.printPaper();
+
+        paper2.submitReview(review1);
+        paper2.submitReview(review2);
+        paper2.submitReview(review3);
+        paper2.updateReview(review1, "Reviewer A", 10, 6, "Awesome");
+        paper2.deleteReview(review2);
         paper2.printPaper();
 
+        paper3.submitReview(review1);
+        paper3.submitReview(review2);
+        paper3.submitReview(review3);
+        paper3.submitReview(review4);
+        paper3.updateReview(review1, "Reviewer A", 10, 6, "Awesome");
+        paper3.deleteReview(review2);
+        paper3.printPaper();
     }
 }
