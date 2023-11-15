@@ -6,14 +6,19 @@ import java.util.StringTokenizer;
 
 public class Interpreter {
 
+    // Stack to store operands during the expression evaluation
     private Stack<Double> operandStack;
+
+    // Decimal format for formatting doubles in the stack
     private DecimalFormat decimalFormat;
 
+    // Constructor initializing the stack and decimal format
     public Interpreter() {
         this.operandStack = new Stack<>();
         this.decimalFormat = new DecimalFormat("#.##");
     }
 
+    // Method to process a postfix expression
     public void processPostFixExpression(String postFixExpression) {
         // Separate tokens
         StringTokenizer tokenizer = new StringTokenizer(postFixExpression, " ");
@@ -40,8 +45,8 @@ public class Interpreter {
 
                     if (result != null) {
                         operandStack.push(result);
-                        System.out.println("Rule 3: Operand(" + formatResult(result) + ") := Operand(" + formatResult(operand1) +
-                                ") Operand(" + formatResult(operand2) + ") Operator(" + token + ")");
+                        System.out.println("Rule 3: Operand(" + formatResult(result) + ") := Operand("
+                                + formatResult(operand1) + ") Operand(" + formatResult(operand2) + ") Operator(" + token + ")");
                         System.out.println("Stack: " + formatStack(operandStack));
                     } else {
                         System.out.println("Invalid expression: Division by zero");
@@ -60,6 +65,7 @@ public class Interpreter {
         }
     }
 
+    // Method to perform arithmetic operation based on the operator
     private Double performOperation(Double operand1, Double operand2, String operator) {
         switch (operator) {
             case "+":
@@ -78,10 +84,12 @@ public class Interpreter {
         }
     }
 
+    // Method to format a double using DecimalFormat
     private String formatResult(double result) {
         return decimalFormat.format(result);
     }
 
+    // Method to format the stack for display
     private String formatStack(Stack<Double> stack) {
         StringBuilder formattedStack = new StringBuilder("[");
         for (double element : stack) {
@@ -94,9 +102,10 @@ public class Interpreter {
         return formattedStack.toString();
     }
 
+    // Main method to test the interpreter
     public static void main(String[] args) {
         Interpreter interpreter = new Interpreter();
-        String postFixExpression = "4.3 25 +  1.7 2 * - 3.2 / ";
+        String postFixExpression = "4.3 25 + + 1.7 2 * - 3.2 /";
         interpreter.processPostFixExpression(postFixExpression);
     }
 }
