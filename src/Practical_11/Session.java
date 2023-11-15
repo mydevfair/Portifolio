@@ -43,7 +43,7 @@ public class Session {
         System.out.println("Session Id= " + sessionId + "\nSession Location= " + location);
         for (int i = 0; i < talkList.length; i++){
             if (talkList[i] != null){
-                System.out.println();
+                System.out.println(talkList[i]);
             }
         }
     }
