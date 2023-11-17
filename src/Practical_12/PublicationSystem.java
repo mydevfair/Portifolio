@@ -1,6 +1,9 @@
 package Practical_12;
 
 public class PublicationSystem {
+    //Assigns the ‘Best Paper Award’ by calculating the weighted average
+    //score for each paper based on review score and confidence
+
     public static void main(String[] args) {
 
         Paper paper1 = new Paper(1, "Title1", "Author1");
@@ -33,5 +36,13 @@ public class PublicationSystem {
         paper3.updateReview(review1, "Reviewer A", 10, 6, "Awesome");
         paper3.deleteReview(review2);
         paper3.printPaper();
+
+
+        int confidence = 0;
+        int weightedAverage =0;
+        for (int i = 0; i < paper1.reviewList.size(); i++){
+            int score = paper1.reviewList.element().getScore();
+            System.out.println(score);
+        }
     }
 }

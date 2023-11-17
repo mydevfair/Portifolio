@@ -12,6 +12,14 @@ public class Review implements Comparable<Review> {
         this.summary = summary;
     }
 
+    public Integer getScore() {
+        return score;
+    }
+
+    public Integer getConfidence() {
+        return confidence;
+    }
+
     public String getReviewer() {
         return reviewer;
     }
