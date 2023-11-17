@@ -15,9 +15,10 @@ public class Session {
         this.location = location;
         this.talkList = new Talk[capacity];
     }
-    public void scheduleTalk(Talk talk){
-        for (int i = 0; i < talkList.length; i ++){
-            if (talkList[i] == null){
+
+    public void scheduleTalk(Talk talk) {
+        for (int i = 0; i < talkList.length; i++) {
+            if (talkList[i] == null) {
                 talkList[i] = talk;
                 Arrays.sort(talkList, Comparator.nullsFirst(Comparator.naturalOrder()));
                 currentSize++;
@@ -25,7 +26,8 @@ public class Session {
             }
         }
     }
-    public void cancelTalk(Talk talk){
+
+    public void cancelTalk(Talk talk) {
         for (int i = 0; i < talkList.length; i++) {
             if (talkList[i].id == talk.id) {
                 talkList[i] = null;
@@ -35,23 +37,24 @@ public class Session {
             }
         }
     }
-    public void printSession(){
-        System.out.println("Session Id= " + sessionId + "\nSession Location= " + location);
-        for (int i = 0; i < talkList.length; i++){
-            if (talkList[i] != null){
-                System.out.println(talkList[i]);
-            }
-        }
-    }
 
     @Override
     public String toString() {
-        return "Session{" +
+        StringBuilder result = new StringBuilder("Session{" +
                 "sessionId=" + sessionId +
                 ", capacity=" + capacity +
                 ", currentSize=" + currentSize +
                 ", location='" + location + '\'' +
-                ", talkList=" + Arrays.toString(talkList) +
-                '}';
+                ", talkList=[\n");
+
+        for (int i = 0; i < talkList.length; i++) {
+            if (talkList[i] != null) {
+                result.append("\t").append(talkList[i]).append("\n");
+            }
+        }
+
+        result.append("]}");
+
+        return result.toString();
     }
 }

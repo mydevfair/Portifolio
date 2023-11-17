@@ -14,13 +14,13 @@ public class Conference {
         session1.scheduleTalk(talk3);
         session1.scheduleTalk(talk4);
         session1.scheduleTalk(talk5);
-        session1.printSession();
+        System.out.println(session1);
         session1.cancelTalk(talk1);
-        session1.printSession();
+        System.out.println(session1);
         session1.cancelTalk(talk3);
         session1.cancelTalk(talk4);
-        session1.printSession();
+        System.out.println(session1);
         session1.cancelTalk(talk2);
-        session1.printSession();
+        System.out.println(session1);
     }
 }
