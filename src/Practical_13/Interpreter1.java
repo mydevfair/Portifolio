@@ -1,4 +1,5 @@
 package Practical_13;
+
 import java.text.DecimalFormat;
 import java.util.Stack;
 import java.util.StringTokenizer;
@@ -14,6 +15,16 @@ public class Interpreter1 {
         this.stack = new Stack<>();
         this.decimalFormat = new DecimalFormat("#.##");
     }
+
+    public boolean checkStack(Stack<String> stack) {
+        if (this.stack.size() == 3 && !this.stack.contains("+, -, *, /")) {
+            System.out.println("Error: Input Error\n");
+            return true;
+        }
+
+        return false;
+    }
+
     //Method to process a postfix expression
     public void processPostFixExpression(String postFixExpression) {
         // Separate tokens
@@ -24,19 +35,25 @@ public class Interpreter1 {
         while (tokenizer.hasMoreElements()) {
             token = tokenizer.nextToken();
 
+
             try {
                 // Check if token is numeric
                 Double tmpDouble = Double.parseDouble(token);
                 System.out.println("Rule 2: Operand (" + tmpDouble + ") := " + tmpDouble);
                 stack.push(String.valueOf(tmpDouble));
                 System.out.println("Stack: " + stack);
+                checkStack(stack);
+                if (checkStack(stack) == true) {
+                    break;
+                }
+
             } catch (NumberFormatException nfe) {
                 // Process token as text
                 System.out.println("Rule 1: Operator (" + token + ") := " + token);
                 stack.push(token);
                 System.out.println("Stack: " + stack);
 
-                if (stack.size() >= 3){
+                if (stack.size() >= 3) {
                     String operator = stack.pop();
                     Double operand2 = Double.valueOf(stack.pop());
                     Double operand1 = Double.valueOf(stack.pop());
@@ -50,13 +67,14 @@ public class Interpreter1 {
                         System.out.println("Invalid expression: Division by zero");
                         return;
                     }
-                }else{
+                } else {
                     System.out.println("Error: Input Error\n");
                     break;
                 }
             }
         }
     }
+
     // Method to perform arithmetic operation based on the operator
     private Double performOperation(Double operand1, Double operand2, String operator) {
         switch (operator) {
@@ -75,13 +93,14 @@ public class Interpreter1 {
                 return null; // Invalid operator
         }
     }
+
     // Method to format a double using DecimalFormat
     private String formatResult(double result) {
         return decimalFormat.format(result);
     }
 
     // Main method to test the interpreter
-    public static void main (String[]args){
+    public static void main(String[] args) {
         Interpreter1 interpreter = new Interpreter1();
         String postFixExpression = "1 4.3 25  + 1.7 2 * - 3.2 /";
         interpreter.processPostFixExpression(postFixExpression);
