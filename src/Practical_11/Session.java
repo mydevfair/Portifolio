@@ -26,18 +26,14 @@ public class Session {
         }
     }
     public void cancelTalk(Talk talk){
-        for (int i = 0; i < talkList.length; i++){
-            swap(talkList, i, talkList.length -1);
-            talkList[talkList.length-1] = null;
-            Arrays.sort(talkList, Comparator.nullsFirst(Comparator.naturalOrder()));
-            currentSize--;
-            break;
+        for (int i = 0; i < talkList.length; i++) {
+            if (talkList[i].id == talk.id) {
+                talkList[i] = null;
+                Arrays.sort(talkList, Comparator.nullsLast(Comparator.naturalOrder()));
+                currentSize--;
+                break;
+            }
         }
-    }
-    public static void swap(Talk[] array, int from, int to){
-        Talk tmp = array[from];
-        array[from] = array[to];
-        array[to] = tmp;
     }
     public void printSession(){
         System.out.println("Session Id= " + sessionId + "\nSession Location= " + location);

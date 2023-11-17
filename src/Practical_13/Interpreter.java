@@ -105,7 +105,7 @@ public class Interpreter {
     // Main method to test the interpreter
     public static void main(String[] args) {
         Interpreter interpreter = new Interpreter();
-        String postFixExpression = "4.3 25 + + 1.7 2 * - 3.2 /";
+        String postFixExpression = "1 4.3 25 + + 1.7 2 * - 3.2 /";
         interpreter.processPostFixExpression(postFixExpression);
     }
 }
