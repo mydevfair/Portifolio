@@ -42,15 +42,16 @@ public class Review implements Comparable<Review> {
 
     @Override
     public String toString() {
-        return "Review{" +
+        StringBuilder result = new StringBuilder("Review{" +
                 "id=" + id +
                 ", score=" + score +
                 ", confidence=" + confidence +
                 ", reviewer='" + reviewer + '\'' +
                 ", summary='" + summary + '\'' +
-                '}' + "\n";
-    }
+                '}' + "\n");
 
+        return result.toString();
+    }
     @Override
     public int compareTo(Review o) {
         return -this.score.compareTo(o.score);

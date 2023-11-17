@@ -15,27 +15,41 @@ public class Paper {
         this.reviewList = new LinkedList<>();
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public LinkedList<Review> getReviewList() {
+        return reviewList;
+    }
+
+    public void setReviewList(LinkedList<Review> reviewList) {
+        this.reviewList = reviewList;
+    }
+
     public void submitReview(Review review) {
-        if (!reviewList.contains(review)){
+        if (!reviewList.contains(review)) {
             reviewList.add(review);
             Collections.sort(reviewList);
             System.out.println("Review submitted for Paper " + id + ": " + review);
             printReviewList();
-        }else {
+        } else {
             System.out.println("Reviewer " + review.getReviewer() + " already submitted a review for Paper " + id);
         }
     }
+
     public void deleteReview(Review review) {
-        if (reviewList.contains(review)){
+        if (reviewList.contains(review)) {
             reviewList.remove(review);
             Collections.sort(reviewList);
             System.out.println("Review removed for Paper " + id + ": " + review);
             printReviewList();
-        }else {
+        } else {
             System.out.println("Reviewer " + review.getReviewer() + " has not submitted a review for this paper " + id);
         }
     }
-    public void updateReview(Review review, String reviewer, Integer score, Integer confidence, String summary){
+
+    public void updateReview(Review review, String reviewer, Integer score, Integer confidence, String summary) {
         if (reviewList.contains(review)) {
             review.setReviewer(reviewer);
             review.setScore(score);
@@ -46,13 +60,15 @@ public class Paper {
             printReviewList();
         }
     }
+
     public void printReviewList() {
         System.out.println("Review List for Paper " + id + ": ");
         for (Review review : reviewList) {
             System.out.println(review);
         }
     }
-    public void printPaper(){
+
+    public void printPaper() {
         System.out.println("Paper Id= " + id + "\nPaper Title= " + title + "\nPaper Author= " + authors);
         for (Review review : reviewList) {
             System.out.println(review);
@@ -61,11 +77,18 @@ public class Paper {
 
     @Override
     public String toString() {
-        return "Paper{" +
+        StringBuilder result = new StringBuilder("Paper{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", authors='" + authors + '\'' +
-                ",\n reviewList=\n" + reviewList +
-                '}' + "\n";
+                ",\n reviewList=\n");
+
+        for (Review review : reviewList) {
+            result.append("\t").append(review).append("\n");
+        }
+
+        result.append('}').append("\n");
+
+        return result.toString();
     }
 }

@@ -1,8 +1,42 @@
 package Practical_12;
 
+import java.util.List;
+
 public class PublicationSystem {
-    //Assigns the ‘Best Paper Award’ by calculating the weighted average
-    //score for each paper based on review score and confidence
+    public static void assignBestPaperAward(List<Paper> papers) {
+        if (papers.isEmpty()) {
+            System.out.println("No papers available. Cannot assign Best Paper Award.");
+            return;
+        }
+        Paper bestPaper = null;
+        double highestWeightedAverage = -1; // Initialize to a value that ensures any valid score will be higher
+
+        for (Paper paper : papers) {
+            if (!paper.getReviewList().isEmpty()) {
+                double weightedSum = 0;
+                int totalConfidence = 0;
+
+                for (Review review : paper.getReviewList()) {
+                    weightedSum += review.getScore() * review.getConfidence();
+                    totalConfidence += review.getConfidence();
+                }
+
+                if (totalConfidence > 0) {
+                    double weightedAverage = weightedSum / totalConfidence;
+
+                    if (weightedAverage > highestWeightedAverage) {
+                        highestWeightedAverage = weightedAverage;
+                        bestPaper = paper;
+                    }
+                }
+            }
+        }
+        if (bestPaper != null) {
+            System.out.println("Best Paper Award assigned to Paper " + bestPaper.getId());
+        } else {
+            System.out.println("No eligible papers for Best Paper Award.");
+        }
+    }
 
     public static void main(String[] args) {
 
@@ -37,12 +71,9 @@ public class PublicationSystem {
         paper3.deleteReview(review2);
         paper3.printPaper();
 
+        List<Paper> papers = List.of(paper1, paper2, paper3);
 
-        int confidence = 0;
-        int weightedAverage =0;
-        for (int i = 0; i < paper1.reviewList.size(); i++){
-            int score = paper1.reviewList.element().getScore();
-            System.out.println(score);
-        }
+        // Assuming reviews are already submitted for each paper
+        assignBestPaperAward(papers);
     }
 }
