@@ -64,7 +64,7 @@ public class Interpreter1 {
                                 + formatResult(operand1) + ") Operand(" + formatResult(operand2) + ") Operator(" + token + ")");
                         System.out.println("Stack: " + stack);
                     } else {
-                        System.out.println("Invalid expression: Division by zero");
+                        System.out.println("Error: Input Error\n");
                         return;
                     }
                 } else {
@@ -102,7 +102,7 @@ public class Interpreter1 {
     // Main method to test the interpreter
     public static void main(String[] args) {
         Interpreter1 interpreter = new Interpreter1();
-        String postFixExpression = "1 4.3 25  + 1.7 2 * - 3.2 /";
+        String postFixExpression = "4.3 25 - 1.7 2 * - 3.2 /";
         interpreter.processPostFixExpression(postFixExpression);
     }
 }
