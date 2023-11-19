@@ -1,2 +1,2 @@
 # Portifolio
-This is my second year Uni Java Portofolio
+This is my Computer Science second year Data Structures and Algorithms Java code assignments
