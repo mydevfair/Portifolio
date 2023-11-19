@@ -1,5 +1,5 @@
 /*
- * File: ConferenceScheduler.java
+ * File: Conference.java
  * Author: Chris Fairhurst
  * Date: November 19, 2023
  * Description: This file contains the implementation of a conference scheduling system.
