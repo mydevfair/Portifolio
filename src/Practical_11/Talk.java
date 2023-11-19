@@ -1,6 +1,7 @@
 /**
- * Class: Conference
- * Description: Contains the main method for testing the conference scheduling functionality.
+ * Class: Talk
+ * Description: Represents a talk in the conference.
+ * Implements Comparable for sorting based on start time.
  */
 
 package Practical_11;

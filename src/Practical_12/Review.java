@@ -1,9 +1,25 @@
+/**
+ * Class: Review
+ * Description: Represents a review for a paper in the conference.
+ * Implements Comparable for sorting based on score.
+ */
 package Practical_12;
-
+/**
+ * A class representing a Review
+ */
 public class Review implements Comparable<Review> {
     Integer id, score, confidence;
     String reviewer, summary;
 
+    /**
+     * Constructor to initialize Review object with provided values
+     *
+     * @param id         The id of the review
+     * @param reviewer   The reviewer of the review
+     * @param score      The score of the review
+     * @param confidence The confidence of the review
+     * @param summary    The summary of the review
+     */
     public Review(Integer id, String reviewer, Integer score, Integer confidence, String summary) {
         this.id = id;
         this.score = score;
@@ -12,6 +28,7 @@ public class Review implements Comparable<Review> {
         this.summary = summary;
     }
 
+    // Getters and Setters
     public Integer getScore() {
         return score;
     }
@@ -40,6 +57,9 @@ public class Review implements Comparable<Review> {
         this.summary = summary;
     }
 
+    /**
+     * Method to print the details of the review
+     */
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder("Review{" +
@@ -52,6 +72,12 @@ public class Review implements Comparable<Review> {
 
         return result.toString();
     }
+    /**
+     * Method to check if two Review objects are equal
+     *
+     * @param o The Review object to be compared with
+     * @return true if the two Review objects are equal, false otherwise
+     */
     @Override
     public int compareTo(Review o) {
         return -this.score.compareTo(o.score);
