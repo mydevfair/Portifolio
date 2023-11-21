@@ -7,6 +7,8 @@
  */
 package Practical_12;
 
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.util.List;
 
 public class PublicationSystem {
@@ -34,6 +36,7 @@ public class PublicationSystem {
 
                 if (totalConfidence > 0) {
                     double weightedAverage = weightedSum / totalConfidence;
+                    System.out.println("Paper " + paper.getId() + ": Avg: " + new DecimalFormat("#.##").format(weightedAverage));
 
                     if (weightedAverage > highestWeightedAverage) {
                         highestWeightedAverage = weightedAverage;
@@ -43,7 +46,9 @@ public class PublicationSystem {
             }
         }
         if (bestPaper != null) {
-            System.out.println("Best Paper Award assigned to Paper " + bestPaper.getId());
+            BigDecimal bd = new BigDecimal(highestWeightedAverage);
+            System.out.println("Best Paper Award assigned to Paper " + bestPaper.getId() +
+                    ": Avg: " + new DecimalFormat("#.##").format(bd.doubleValue()));
         } else {
             System.out.println("No eligible papers for Best Paper Award.");
         }

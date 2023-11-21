@@ -62,13 +62,13 @@ public class Review implements Comparable<Review> {
      */
     @Override
     public String toString() {
-        StringBuilder result = new StringBuilder("Review{" +
+        StringBuilder result = new StringBuilder("Review" +
                 "id=" + id +
                 ", score=" + score +
                 ", confidence=" + confidence +
                 ", reviewer='" + reviewer + '\'' +
                 ", summary='" + summary + '\'' +
-                '}' + "\n");
+                "\n");
 
         return result.toString();
     }

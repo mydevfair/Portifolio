@@ -11,9 +11,7 @@ public class Session {
     /**
      * A class representing a Session
      */
-    int sessionId;
-    int capacity = 4;
-    int currentSize = 0;
+    int sessionId, capacity = 4, currentSize = 0;
     String location;
     Talk[] talkList;
     /**
@@ -46,7 +44,7 @@ public class Session {
      */
     public void cancelTalk(Talk talk) {
         for (int i = 0; i < talkList.length; i++) { // Loop through talkList
-            if (talkList[i].id == talk.id) {// If talkList[i] is the talk to be cancelled
+            if (talkList[i].id == talk.id) {// If talkList[i] is equal to talk
                 talkList[i] = null;// Set talkList[i] to null
                 Arrays.sort(talkList, Comparator.nullsLast(Comparator.naturalOrder())); // Sort talkList
                 currentSize--; // Decrement currentSize
