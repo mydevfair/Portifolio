@@ -34,7 +34,7 @@ public class Session {
         for (int i = 0; i < talkList.length; i++) {
             if (talkList[i] == null) {
                 talkList[i] = talk;
-                Arrays.sort(talkList, Comparator.nullsFirst(Comparator.naturalOrder()));
+                Arrays.sort(talkList, Comparator.nullsLast(Comparator.naturalOrder()));
                 currentSize++;
                 break;
             }

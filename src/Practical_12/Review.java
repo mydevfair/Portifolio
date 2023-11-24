@@ -22,8 +22,8 @@ public class Review implements Comparable<Review> {
      */
     public Review(Integer id, String reviewer, Integer score, Integer confidence, String summary) {
         this.id = id;
-        this.score = score;
-        this.confidence = confidence;
+        this.score = setScore(score);
+        this.confidence = setConfidence(confidence);
         this.reviewer = reviewer;
         this.summary = summary;
     }
@@ -41,12 +41,20 @@ public class Review implements Comparable<Review> {
         return reviewer;
     }
 
-    public void setScore(Integer score) {
-        this.score = score;
+    public Integer setScore(Integer score) {
+        if (score < 0 || score > 10) {
+            System.out.println("Invalid score. Score must be between 0 and 10 confidence has been set to null please update to change..");
+            return null;
+        }
+        return this.score = score;
     }
 
-    public void setConfidence(Integer confidence) {
-        this.confidence = confidence;
+    public Integer setConfidence(Integer confidence) {
+        if (confidence < 0 || confidence > 5) {
+            System.out.println("Invalid confidence. Confidence must be between 0 and 5 score has been set to null please update to change.");
+            return null;
+        }
+        return this.confidence = confidence;
     }
 
     public void setReviewer(String reviewer) {
