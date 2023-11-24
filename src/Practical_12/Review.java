@@ -28,15 +28,27 @@ public class Review implements Comparable<Review> {
         this.summary = summary;
     }
 
-    // Getters and Setters
+    /**
+     * Method to get the id of the review
+     *
+     * @return The id of the review
+     */
     public Integer getScore() {
         return score;
     }
-
+    /**
+     * Method to get the id of the review
+     *
+     * @return The id of the review
+     */
     public Integer getConfidence() {
         return confidence;
     }
-
+    /**
+     * Method to get the id of the review
+     *
+     * @return The id of the review
+     */
     public String getReviewer() {
         return reviewer;
     }
@@ -64,11 +76,19 @@ public class Review implements Comparable<Review> {
         }
         return this.confidence = confidence;
     }
-
+    /**
+     * Method to set the reviewer of the review
+     *
+     * @param reviewer The reviewer of the review
+     */
     public void setReviewer(String reviewer) {
         this.reviewer = reviewer;
     }
-
+    /**
+     * Method to set the summary of the review
+     *
+     * @param summary The summary of the review
+     */
     public void setSummary(String summary) {
         this.summary = summary;
     }
