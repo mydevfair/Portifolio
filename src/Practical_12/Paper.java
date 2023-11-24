@@ -28,11 +28,19 @@ public class Paper {
         this.authors = authors;
         this.reviewList = new LinkedList<>();
     }
-    // Getters and Setters
+    /**
+     * Method to get the id of the paper
+     *
+     * @return The id of the paper
+     */
     public int getId() {
         return id;
     }
-
+    /**
+     * Method to get the title of the paper
+     *
+     * @return The title of the paper
+     */
     public LinkedList<Review> getReviewList() {
         return reviewList;
     }
