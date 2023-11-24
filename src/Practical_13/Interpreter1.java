@@ -85,7 +85,7 @@ public class Interpreter1 {
                         return;
                     }
                 } else {
-                    System.out.println("Error: Input Error: Operator in unappropriate and not valid and statement is not valid\n");
+                    System.out.println("Error: Input Error: Operator in unappropriate and statement is not valid\n");
                     break;
                 }
             }
@@ -132,7 +132,7 @@ public class Interpreter1 {
      */
     public static void main(String[] args) {
         Interpreter1 interpreter = new Interpreter1();
-        String postFixExpression = " + 4.3 25 + 1.7 2 * - 3.2 /";
+        String postFixExpression = "  4.3 25 + + 1.7 2 * - 3.2 /";
         interpreter.processPostFixExpression(postFixExpression);
     }
 }
