@@ -85,7 +85,7 @@ public class Interpreter1 {
                         return;
                     }
                 } else {
-                    System.out.println("Error: Input Error: Operator in unappropriate and statement is not valid\n");
+                    System.out.println("Error: Input Error: Operator in unappropriate position or statement is not valid\n");
                     break;
                 }
             }
