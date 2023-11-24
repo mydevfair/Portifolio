@@ -27,7 +27,6 @@ public class Review implements Comparable<Review> {
         this.reviewer = reviewer;
         this.summary = summary;
     }
-
     /**
      * Method to get the id of the review
      *
