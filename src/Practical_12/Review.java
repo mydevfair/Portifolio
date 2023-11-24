@@ -40,7 +40,11 @@ public class Review implements Comparable<Review> {
     public String getReviewer() {
         return reviewer;
     }
-
+    /**
+     * Method to set the score of the review
+     *
+     * @param score The score of the review
+     */
     public Integer setScore(Integer score) {
         if (score < 0 || score > 10) {
             System.out.println("Invalid score. Score must be between 0 and 10 confidence has been set to null please update to change..");
@@ -48,7 +52,11 @@ public class Review implements Comparable<Review> {
         }
         return this.score = score;
     }
-
+    /**
+     * Method to set the confidence of the review
+     *
+     * @param confidence The confidence of the review
+     */
     public Integer setConfidence(Integer confidence) {
         if (confidence < 0 || confidence > 5) {
             System.out.println("Invalid confidence. Confidence must be between 0 and 5 score has been set to null please update to change.");
