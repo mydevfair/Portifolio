@@ -22,37 +22,72 @@ public class Review implements Comparable<Review> {
      */
     public Review(Integer id, String reviewer, Integer score, Integer confidence, String summary) {
         this.id = id;
-        this.score = score;
-        this.confidence = confidence;
+        this.score = setScore(score);
+        this.confidence = setConfidence(confidence);
         this.reviewer = reviewer;
         this.summary = summary;
     }
-
-    // Getters and Setters
+    /**
+     * Method to get the id of the review
+     *
+     * @return The id of the review
+     */
     public Integer getScore() {
         return score;
     }
-
+    /**
+     * Method to get the id of the review
+     *
+     * @return The id of the review
+     */
     public Integer getConfidence() {
         return confidence;
     }
-
+    /**
+     * Method to get the id of the review
+     *
+     * @return The id of the review
+     */
     public String getReviewer() {
         return reviewer;
     }
-
-    public void setScore(Integer score) {
-        this.score = score;
+    /**
+     * Method to set the score of the review
+     *
+     * @param score The score of the review
+     */
+    public Integer setScore(Integer score) {
+        if (score < 0 || score > 10) {
+            System.out.println("Invalid score. Score must be between 0 and 10 confidence has been set to null please update to change..");
+            return null;
+        }
+        return this.score = score;
     }
-
-    public void setConfidence(Integer confidence) {
-        this.confidence = confidence;
+    /**
+     * Method to set the confidence of the review
+     *
+     * @param confidence The confidence of the review
+     */
+    public Integer setConfidence(Integer confidence) {
+        if (confidence < 0 || confidence > 5) {
+            System.out.println("Invalid confidence. Confidence must be between 0 and 5 score has been set to null please update to change.");
+            return null;
+        }
+        return this.confidence = confidence;
     }
-
+    /**
+     * Method to set the reviewer of the review
+     *
+     * @param reviewer The reviewer of the review
+     */
     public void setReviewer(String reviewer) {
         this.reviewer = reviewer;
     }
-
+    /**
+     * Method to set the summary of the review
+     *
+     * @param summary The summary of the review
+     */
     public void setSummary(String summary) {
         this.summary = summary;
     }

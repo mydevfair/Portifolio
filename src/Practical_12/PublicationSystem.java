@@ -67,7 +67,7 @@ public class PublicationSystem {
         /**
          * Creates four reviews
          */
-        Review review1 = new Review(1, "Reviewer A", 5, 4, "Good");
+        Review review1 = new Review(1, "Reviewer A", 11, 6, "Good");
         Review review2 = new Review(2, "Reviewer B", 9, 2, "Average");
         Review review3 = new Review(3, "Reviewer A", 5, 4, "Good");
         Review review4 = new Review(4, "Reviewer B", 9, 2, "Average");

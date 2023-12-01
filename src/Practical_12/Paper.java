@@ -14,7 +14,6 @@ public class Paper {
     private int id;
     String title, authors;
     LinkedList<Review> reviewList;
-
     /**
      * Constructor to initialize Paper object with provided values
      *
@@ -29,15 +28,23 @@ public class Paper {
         this.authors = authors;
         this.reviewList = new LinkedList<>();
     }
-
-    // Getters and Setters
+    /**
+     * Method to get the id of the paper
+     *
+     * @return The id of the paper
+     */
     public int getId() {
         return id;
     }
-
+    /**
+     * Method to get the title of the paper
+     *
+     * @return The title of the paper
+     */
     public LinkedList<Review> getReviewList() {
         return reviewList;
     }
+
 
     /**
      * Method to submit a review for the paper
@@ -50,7 +57,6 @@ public class Paper {
             Collections.sort(reviewList);
             System.out.println("Review submitted for Paper " + id + ": " + review);
             printReviewList();
-            printPaper();
         } else {
             System.out.println("Reviewer " + review.getReviewer() + " already submitted a review for Paper " + id);
         }
@@ -67,7 +73,6 @@ public class Paper {
             Collections.sort(reviewList);
             System.out.println("Review removed for Paper " + id + ": " + review);
             printReviewList();
-            printPaper();
         } else {
             System.out.println("Reviewer " + review.getReviewer() + " has not submitted a review for this paper " + id);
         }
@@ -76,11 +81,11 @@ public class Paper {
     /**
      * Method to update a review for the paper
      *
-     * @param review     The review to be updated
-     * @param reviewer   The reviewer of the review
-     * @param score      The score of the review
+     * @param review    The review to be updated
+     * @param reviewer  The reviewer of the review
+     * @param score     The score of the review
      * @param confidence The confidence of the review
-     * @param summary    The summary of the review
+     * @param summary   The summary of the review
      */
     public void updateReview(Review review, String reviewer, Integer score, Integer confidence, String summary) {
         if (reviewList.contains(review)) {
@@ -90,30 +95,48 @@ public class Paper {
             review.setSummary(summary);
             Collections.sort(reviewList);
             System.out.println("Review updated for Paper " + id + ": " + review);
-            printPaper();
+            printReviewList();
         }
     }
 
     /**
      * Method to print the review list for the paper
-     *
-     * @return
      */
-    public String printReviewList() {
+    public void printReviewList() {
         System.out.println("Review List for Paper " + id + ": ");
         for (Review review : reviewList) {
-            return review.toString();
+            System.out.println(review);
         }
-        return null;
     }
-        /**
-         * Method to print the details of the paper
-         */
-        public void printPaper () {
-            System.out.println("Talk Paper Id= " + id + "\nPaper Title= " + title + "\nPaper Author= " + authors);
-            for (Review review : reviewList) {
-                System.out.println(review.toString());
-            }
+    /**
+     * Method to print the details of the paper
+     */
+    public void printPaper() {
+        System.out.println("Paper Id= " + id + "\nPaper Title= " + title + "\nPaper Author= " + authors);
+        for (Review review : reviewList) {
+            System.out.println(review);
         }
     }
 
+    /**
+     * Method to calculate the weighted average score of the paper
+     *
+     * @return The weighted average score of the paper
+     */
+    @Override
+    public String toString() {
+        StringBuilder result = new StringBuilder("Paper{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", authors='" + authors + '\'' +
+                ",\n reviewList=\n");
+
+        for (Review review : reviewList) {
+            result.append("\t").append(review).append("\n");
+        }
+
+        result.append('}').append("\n");
+
+        return result.toString();
+    }
+}
