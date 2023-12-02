@@ -117,13 +117,8 @@ public class Paper {
             System.out.println(review);
         }
     }
-
-    /**
-     * Method to calculate the weighted average score of the paper
-     *
-     * @return The weighted average score of the paper
-     */
     @Override
+    // Method to return the string representation of the paper
     public String toString() {
         StringBuilder result = new StringBuilder("Paper{" +
                 "id=" + id +
