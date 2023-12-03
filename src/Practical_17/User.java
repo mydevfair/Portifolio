@@ -23,6 +23,10 @@ public class User {
         String formattedPrice = currencyFormatter.format(totalPrice);
         System.out.println("Total price of all orders: " + formattedPrice + "\n");
     }
+    /**
+     * Main method to test the inventory system
+     * @param args Command line arguments
+     */
 
     public static void main(String[] args) {
         // Create an inventory system
@@ -49,6 +53,8 @@ public class User {
         inventorySystem1.printOrdersWithStatus(Order.Status.Paid);
         inventorySystem1.printOrdersWithStatus(Order.Status.Shipped);
         inventorySystem1.printOrdersWithStatus(Order.Status.Delivered);
+        // Calculate the total price of all orders in inventory system
+        calculateTotalPrice(inventorySystem1);
         // Create another inventory system
         InventorySystem inventorySystem2 = new InventorySystem();
         // Create some orders
@@ -73,8 +79,7 @@ public class User {
         inventorySystem2.printOrdersWithStatus(Order.Status.Paid);
         inventorySystem2.printOrdersWithStatus(Order.Status.Shipped);
         inventorySystem2.printOrdersWithStatus(Order.Status.Delivered);
-        // Calculate the total price of all orders in each inventory system
-        calculateTotalPrice(inventorySystem1);
+        // Calculate the total price of all orders in inventory system
         calculateTotalPrice(inventorySystem2);
     }
 
