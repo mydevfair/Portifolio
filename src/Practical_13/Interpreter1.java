@@ -15,9 +15,9 @@ public class Interpreter1 {
     /**
      * Stack for storing operands and operators.
      */
-    private Stack<String> stack;
+    Stack<String> stack;
 
-    private DecimalFormat decimalFormat;
+    DecimalFormat decimalFormat;
 
     /**
      * Constructor for Interpreter1.
@@ -60,7 +60,7 @@ public class Interpreter1 {
                 stack.push(String.valueOf(tmpDouble));
                 System.out.println("Stack: " + stack);
                 checkStack(stack);
-                if (checkStack(stack) == true) {
+                if (checkStack(stack)) {
                     break;
                 }
 
