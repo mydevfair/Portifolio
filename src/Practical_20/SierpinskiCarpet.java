@@ -7,8 +7,8 @@
 package Practical_20;
 
 public class SierpinskiCarpet {
-    public char[][] board;//the board
-    public int size;//the size of the board
+    char[][] board;//the board
+    int size;//the size of the board
     /**
      * Constructor
      * @param n
@@ -18,10 +18,10 @@ public class SierpinskiCarpet {
     public SierpinskiCarpet(int n){
         this.size = (int) Math.pow(3, n);//get the size of the board
         this.board = new char[size][size];//create the board
-        initializeBoard();//call the method to initialise the board
+        initialiseBoard();//call the method to initialise the board
     }
     //method to initialise the board with *
-    public void initializeBoard(){
+    public void initialiseBoard(){
         for(int i = 0; i < size; i++){//loop through the rows
             for(int j = 0; j < size; j++){//loop through the columns
                 board[i][j] = '*';//fill with *
@@ -58,7 +58,7 @@ public class SierpinskiCarpet {
             for(int j = 0; j < size; j++){//loop through the columns
                 System.out.print(board[i][j]);//print the board
             }
-            System.out.println();//print a new line
+            System.out.println();
         }
     }
     //method to generate the carpet with levels of recursion
@@ -69,15 +69,15 @@ public class SierpinskiCarpet {
         for (int i = 0; i < 3; i++) {//loop through the rows
             for (int j = 0; j < 3; j++) {//loop through the columns
                 if (i == 1 && j == 1) {//if the row and column are in the middle
-                    fillWithSpaces(board, row + newSize, col + newSize, newSize, Character.forDigit(level, 10));//fill with spaces
-                } else {//otherwise
+                    fillWithLevels(board, row + newSize, col + newSize, newSize, Character.forDigit(level, 10));//fill with spaces
+                } else {
                     generateCarpetWithLevels(board, row + i * newSize, col + j * newSize, newSize, level + 1);//recursively call the method
                 }
             }
         }
     }
     //method to fill the board with levels of recursion
-    public void fillWithSpaces(char[][] board, int row, int col, int size, char level) {
+    public void fillWithLevels(char[][] board, int row, int col, int size, char level) {
         for(int i = row; i < row + size; i++){//loop through the rows
             for(int j = col; j < col + size; j++){//loop through the columns
                 board[i][j] = level;//fill with the current level number of recursion
@@ -91,14 +91,14 @@ public class SierpinskiCarpet {
             for(int j = 0; j < size; j++){//loop through the columns
                 System.out.print(board[i][j]);//print the board
             }
-            System.out.println();//print a new line
+            System.out.println();
         }
     }
 
 
     //main method
     public static void main(String[] args){
-        SierpinskiCarpet s = new SierpinskiCarpet(2);//create a new object
+        SierpinskiCarpet s = new SierpinskiCarpet(2);//create a new SierpinskiCarpet object
         s.generateCarpet(s.board, 0,0, s.size);//generate the carpet
         s.printCarpet();//print the carpet
         s.generateCarpetWithLevels(s.board, 0,0, s.size,0);//generate the carpet with levels

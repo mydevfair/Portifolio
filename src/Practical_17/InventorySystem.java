@@ -19,7 +19,7 @@ import java.util.Map;
 
 public class InventorySystem {
     // HashMap to store the orders
-    public Map<Integer, Order> orders;
+    private Map<Integer, Order> orders;
 
     // Constructor to initialize the HashMap
     public InventorySystem() {
